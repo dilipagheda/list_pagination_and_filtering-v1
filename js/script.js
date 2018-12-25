@@ -127,13 +127,19 @@ function appendPageLinks(){
       div.className='pagination';
       div.innerHTML = generateLIs(totalPages);
       page.appendChild(div);
-   }
-   //get the first page shown by default
-   showPage(1);
-   //add click listener at pagination div level to catch click event for li items
-   paginationDiv = document.querySelector('.pagination');
-   paginationDiv.addEventListener('click',loadPage);
+   
+      //get the first page shown by default
+      showPage(1);
+      //add click listener at pagination div level to catch click event for li items
+      paginationDiv = document.querySelector('.pagination');
+      paginationDiv.addEventListener('click',loadPage);
+   }else{
+      let div = document.createElement('div');
+      div.className='pagination';
+      div.innerHTML = "<p>Sorry! No records found!</p>";
+      page.appendChild(div);
 
+   }
 }
 
 function generateLIs(totalPages){
